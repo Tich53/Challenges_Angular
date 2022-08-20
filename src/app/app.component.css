@@ -1,0 +1,28 @@
+p{
+    border: solid 2px;
+    width: 50px;
+}
+
+.topRight{
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -55px;
+  }
+
+.bottomLeft{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 400px;
+}
+
+.bottomRight{
+margin-right: 10px;
+display: flex;
+justify-content: flex-end;
+margin-top: -30px;
+}
+
+.vital {
+    color: red;
+}

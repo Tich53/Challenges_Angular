@@ -102,3 +102,18 @@ dist
 
 # TernJS port file
 .tern-port
+
+.angular/*
+.angular/cache/14.1.1/angular-webpack/c9fc9073a878c50654a3824235c4b8845837195d/
+.angular/cache/14.1.1/babel-webpack/012e5f7a56d1f78e4b88cc53366a21e3.json
+angular.json
+karma.conf.js
+package-lock.json
+package.json
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+
+
+
+

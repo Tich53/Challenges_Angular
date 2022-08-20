@@ -1,0 +1,12 @@
+<h2>Challenge3: INPUT</h2>
+
+<ul>
+    <li>{{ developerModel?.lastName }}</li>
+    <li>{{ developerModel?.firstName }}</li>
+    <li>{{ developerModel?.age }}</li>
+    <li>{{ developerModel?.sexe }}</li>
+    <li>{{ developerModel?.bio }}</li>
+    <li *ngFor="let skill of skills;">
+        <app-skill-component [mySkill]="skill"></app-skill-component>
+    </li>
+</ul>

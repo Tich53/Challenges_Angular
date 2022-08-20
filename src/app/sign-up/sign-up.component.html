@@ -1,0 +1,71 @@
+<div [hidden]="submitted">
+  <h2>Template driven User Form</h2>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <label for="firstname">Prénom</label>
+    <input type="text" name="firstname" id="firstname" #firstname="ngModel" required [(ngModel)]="modelUser.firstname"
+      minlength="3" maxlength="15">
+    <!--       <div [hidden]="firstname.valid || firstname.pristine"
+        class="alert alert-danger">
+        Le prénom est requis
+        </div> -->
+    <div *ngIf="firstname.errors">
+      <span *ngIf="firstname.errors?.['required']">Le prénom est requis</span>
+      <span *ngIf="firstname.errors?.['minlength']">Le prénom doit comporter au moins 3 caractères</span>
+      <span *ngIf="firstname.errors?.['maxlength']">Le prénom ne doit pas dépasser 15 caractères</span>
+    </div>
+
+    <label for="lastname">Nom</label>
+    <input type="text" name="lastname" id="lastname" #lastname="ngModel" required [(ngModel)]="modelUser.lastname"
+      minlength="3" maxlength="15">
+    <!--         <div [hidden]="lastname.valid || lastname.pristine"
+        class="alert alert-danger">
+            Le nom est requis
+        </div> -->
+    <div *ngIf="lastname.errors">
+      <span *ngIf="lastname.errors?.['required'] && userForm.submitted">Le nom est requis</span>
+      <span *ngIf="lastname.errors?.['minlength'] && userForm.submitted">Le nom doit comporter au moins 3
+        caractères</span>
+      <span *ngIf="lastname.errors?.['maxlength'] && userForm.submitted">Le nom ne doit pas dépasser 15
+        caractères</span>
+    </div>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" #email="ngModel" required [(ngModel)]="modelUser.email" email>
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      L'email est invalide
+    </div>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" #password="ngModel" required [(ngModel)]="modelUser.password"
+      minlength="8">
+    <!--         <div [hidden]="password.valid || password.pristine"
+        class="alert alert-danger">
+        Le mot de passe doit comporter au moins 8 caractères
+        </div> -->
+    <div *ngIf="password.errors">
+      <span *ngIf="password.errors?.['required']">Le mot de passe est requis</span>
+      <span *ngIf="password.errors?.['minlength']">Le mot de passe doit comporter au moins 8 caractères</span>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid"> Valider </button>
+
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>Ce nouvel utilisateur a bien été enregistré:</h2>
+  <div class="row">
+    <div class="col-xs-3">Prénom</div>
+    <div class="col-xs-9">{{ modelUser.firstname }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Nom</div>
+    <div class="col-xs-9">{{ modelUser.lastname }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Email</div>
+    <div class="col-xs-9">{{ modelUser.email }}</div>
+  </div>
+  <br>
+  <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>

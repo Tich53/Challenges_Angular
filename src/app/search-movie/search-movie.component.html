@@ -1,0 +1,27 @@
+<h2>Reactive Form</h2>
+<form (ngSubmit)="onSubmit()" [formGroup]="searchMovieForm">
+    <div formGroupName="movie">
+        <label for="id">Identifiant</label>
+        <input type="text" id="id" formControlName="id">
+
+        <label for="title">Titre</label>
+        <input type="text" id="title" formControlName="title">
+    </div>
+
+    <label for="type">Type</label>
+    <select name="" id="type">
+        <option value="" formControlName="film">film</option>
+        <option value="" formControlName="serie" selected>série</option>
+        <option value="" formControlName="épisode">épisode</option>
+    </select>
+
+    <label for="release_date">Année de sortie</label>
+    <input type="date" id="release_date" formControlName="release_date">
+
+    <label for="fiche">Fiche</label>
+    <select name="" id="fiche">
+        <option value="" formControlName="complete">complète</option>
+        <option value="" formControlName="courte">courte</option>
+    </select>
+    <button type="submit">Valider</button>
+</form>

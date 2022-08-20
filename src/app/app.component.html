@@ -1,0 +1,47 @@
+<app-block-components></app-block-components>
+<app-block-components class="topRight"></app-block-components>
+<app-block-components class="bottomLeft"></app-block-components>
+<app-block-components class="bottomRight"></app-block-components>
+
+<span>Bienvenue sur le site de {{ title }}</span>
+
+<app-menu></app-menu>
+
+<app-heroes></app-heroes>
+<app-validation-button></app-validation-button>
+
+<ul>
+    <li [ngStyle]="{backgroundColor : isThisIngredientVital ? 'red' : 'yellow'}">Pommes de terre</li>
+    <li [ngClass]="{'vital' : isThisIngredientVital}">Raclette</li>
+    <li>Jambon</li>
+    <li>Cornichons</li>
+</ul>
+<ul *ngIf="displayGuestList">
+    <li>Brendan</li>
+    <li>Dylan</li>
+    <li>Jean Mi</li>
+    <li>kylie</li>
+</ul>
+<ul *ngFor="let song of songList">
+    <li>{{ song }}</li>
+</ul>
+
+<app-sign-up></app-sign-up>
+
+
+
+<app-developer-component></app-developer-component>
+
+
+<app-create-onomatopia-component (sendOnomatopiaToParent)="onReceiveNewOnomatopia($event)">
+</app-create-onomatopia-component>
+<ul>
+    <li *ngFor="let onomatopoeia of onomatopoeias">
+        {{ onomatopoeia }}
+    </li>
+</ul>
+
+<app-cocktail-list></app-cocktail-list>
+
+
+<router-outlet></router-outlet>

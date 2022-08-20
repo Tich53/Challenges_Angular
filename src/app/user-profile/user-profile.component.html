@@ -1,0 +1,7 @@
+<img src="{{User.photo}}" alt="">
+<input type="text" [(ngModel)]="User.quote" placeholder="Je ne perds jamais, soit je gagne, soit j'apprends">
+<p>Nom: {{User.name}} </p>
+<p>Prénom: {{User.firstName}}</p>
+<p [hidden] = "User.hide">Age: {{User.age}} ans</p>
+Citation: {{ User.quote}}
+<button (click) ="User.hide = !User.hide">Age</button>
